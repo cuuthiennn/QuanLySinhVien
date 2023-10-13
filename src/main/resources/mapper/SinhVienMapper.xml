@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.QuanLySinhVien.mapper.SinhVienMapper">
+    <resultMap id="sinhVienResultMap" type="com.example.QuanLySinhVien.entity.SinhVien">
+        <result property="maSinhVien" column="MaSV"/>
+        <result property="tenSinhVien" column="TenSV"/>
+        <result property="gioiTinh" column="GioiTinh"/>
+        <result property="ngaySinh" column="NgaySinh"/>
+        <result property="queQuan" column="QueQuan"/>
+        <result property="maLop" column="MaLop"/>
+    </resultMap>
+    <select id="getAllSinhVien" resultMap="sinhVienResultMap">
+        SELECT MaSV,
+               TenSV,
+               GioiTinh,
+               NgaySinh,
+               QueQuan,
+               MaLop
+        FROM dbo.SinhVien
+    </select>
+
+    <select id="getSinhVienById" resultMap="sinhVienResultMap">
+        SELECT MaSV,
+               TenSV,
+               GioiTinh,
+               NgaySinh,
+               QueQuan,
+               MaLop
+        FROM dbo.SinhVien
+        WHERE MaSV = #{maSinhVien}
+    </select>
+
+    <insert id="createSinhVien" >
+        INSERT INTO SinhVien(MaSV, TenSV, GioiTinh, NgaySinh, QueQuan, MaLop)
+            VALUES (#{maSinhVien}, #{tenSinhVien}, #{gioiTinh}, #{ngaySinh}, #{queQuan}, #{maLop});
+    </insert>
+
+    <update id="updateSinhVien">
+        UPDATE dbo.SinhVien
+        SET TenSV = #{tenSinhVien},
+            GioiTinh = #{gioiTinh},
+            NgaySinh = #{ngaySinh},
+            QueQuan = #{queQuan},
+            MaLop = #{maLop}
+        WHERE MaSV = #{maSinhVien}
+    </update>
+
+    <delete id="deleteSinhVien">
+        DELETE FROM dbo.SinhVien
+        WHERE MaSV = #{maSinhVien}
+    </delete>
+</mapper>

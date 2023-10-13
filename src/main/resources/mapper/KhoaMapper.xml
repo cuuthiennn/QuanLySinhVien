@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.QuanLySinhVien.mapper.KhoaMapper">
+    <resultMap id="khoaResultMap" type="com.example.QuanLySinhVien.entity.Khoa">
+        <result property="maKhoa" column="MaKhoa"/>
+        <result property="tenKhoa" column="TenKhoa"/>
+        <result property="diaChi" column="DiaChi"/>
+        <result property="dienThoai" column="DienThoai"/>
+    </resultMap>
+
+</mapper>

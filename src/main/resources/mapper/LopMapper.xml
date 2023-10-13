@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.QuanLySinhVien.mapper.LopMapper">
+    <resultMap id="lopResultMap" type="com.example.QuanLySinhVien.entity.Lop">
+        <result property="maLop" column="MaLop"/>
+        <result property="tenLop" column="TenLop"/>
+        <result property="maKhoa" column="MaKhoa"/>
+        <result property="maHeDT" column="MaHeDT"/>
+        <result property="maKhoaHoc" column="MaKhoaHoc"/>
+    </resultMap>
+
+</mapper>

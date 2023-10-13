@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.QuanLySinhVien.mapper.MonHocMapper">
+    <resultMap id="monHocResultMap" type="com.example.QuanLySinhVien.entity.MonHoc">
+        <result property="maMonHoc" column="MaMH"/>
+        <result property="tenMonHoc" column="TenMH"/>
+        <result property="soTinChi" column="SoTC"/>
+    </resultMap>
+
+</mapper>
