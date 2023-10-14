@@ -15,13 +15,23 @@ public class DiemServiceIpml implements DiemService {
     private DiemMapper mapper;
 
     @Override
-    public List<Diem> getAllDiem(String maSinhVien) {
-        return mapper.getAllDiem(maSinhVien);
+    public List<Diem> getAllDiem() {
+        return mapper.getAllDiem();
     }
 
     @Override
-    public Diem getDiemByMaMonHoc(String maSinhVien, String maMonHoc) {
-        return mapper.getDiemByMaMonHoc(maSinhVien, maMonHoc);
+    public List<Diem> getAllDiemMonHoc(String maMonHoc) {
+        return mapper.getAllDiemMonHoc(maMonHoc);
+    }
+
+    @Override
+    public List<Diem> getAllDiemSinhVien(String maSinhVien) {
+        return mapper.getAllDiemSinhVien(maSinhVien);
+    }
+
+    @Override
+    public Diem getDiemSinhVienByMaMonHoc(String maSinhVien, String maMonHoc) {
+        return mapper.getDiemSinhVienByMaMonHoc(maSinhVien, maMonHoc);
     }
 
     @Override

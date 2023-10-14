@@ -23,11 +23,11 @@ public class DiemApi {
     private DiemService service;
 
     @GetMapping("/getAllDiem")
-    ResponseEntity<?> doGetAllDiem(@RequestParam("maSinhVien") String maSinhVien){
+    ResponseEntity<?> doGetAllDiem(){
         List<Diem> diems = new ArrayList<>();
         HashMap<String, Object> result = new HashMap<>();
         try{
-            diems = service.getAllDiem(maSinhVien);
+            diems = service.getAllDiem();
             result.put("success", true);
             result.put("message", "Success when call api getAllDiem");
             result.put("data", diems);
@@ -40,20 +40,56 @@ public class DiemApi {
         return ResponseEntity.ok(result);
     }
 
-    @GetMapping("/getDiemByMaMonHoc")
-    ResponseEntity<?> doGetDiemByMaMonHoc(@RequestParam("maSinhVien") String maSinhVien,
+    @GetMapping("/getAllDiemSinhVien")
+    ResponseEntity<?> doGetAllDiemSinhVien(@RequestParam("maSinhVien") String maSinhVien){
+        List<Diem> diems = new ArrayList<>();
+        HashMap<String, Object> result = new HashMap<>();
+        try{
+            diems = service.getAllDiemSinhVien(maSinhVien);
+            result.put("success", true);
+            result.put("message", "Success when call api getAllDiemSinhVien");
+            result.put("data", diems);
+        }catch (Exception e){
+            log.error("Error when call api getAllDiemSinhVien: ", e);
+            result.put("success", false);
+            result.put("message", "Failed when call api getAllDiemSinhVien");
+            result.put("data", diems);
+        }
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/getAllDiemMonHoc")
+    ResponseEntity<?> doGetAllDiemMonHoc(@RequestParam("maMonHoc") String maMonHoc){
+        List<Diem> diems = new ArrayList<>();
+        HashMap<String, Object> result = new HashMap<>();
+        try{
+            diems = service.getAllDiemMonHoc(maMonHoc);
+            result.put("success", true);
+            result.put("message", "Success when call api getAllDiemMonHoc");
+            result.put("data", diems);
+        }catch (Exception e){
+            log.error("Error when call api getAllDiemMonHoc: ", e);
+            result.put("success", false);
+            result.put("message", "Failed when call api getAllDiemMonHoc");
+            result.put("data", diems);
+        }
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/getDiemSinhVienByMaMonHoc")
+    ResponseEntity<?> doGetDiemSinhVienByMaMonHoc(@RequestParam("maSinhVien") String maSinhVien,
                                           @RequestParam("maMonHoc") String maMonHoc){
         Diem diem = new Diem();
         HashMap<String, Object> result = new HashMap<>();
         try{
-            diem = service.getDiemByMaMonHoc(maSinhVien, maMonHoc);
+            diem = service.getDiemSinhVienByMaMonHoc(maSinhVien, maMonHoc);
             result.put("success", true);
-            result.put("message", "Success when call api getDiemByMaMonHoc");
+            result.put("message", "Success when call api getDiemSinhVienByMaMonHoc");
             result.put("data", diem);
         }catch (Exception e){
-            log.error("Error when call api getDiemByMaMonHoc: ", e);
+            log.error("Error when call api getDiemSinhVienByMaMonHoc: ", e);
             result.put("success", false);
-            result.put("message", "Failed when call api getDiemByMaMonHoc");
+            result.put("message", "Failed when call api getDiemSinhVienByMaMonHoc");
             result.put("data", diem);
         }
         return ResponseEntity.ok(result);

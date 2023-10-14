@@ -8,4 +8,56 @@
         <result property="diemL2" column="DiemL2"/>
     </resultMap>
 
+    <select id="getAllDiem" resultMap="diemResultMap">
+        SELECT MaSV,
+               MaMH,
+               DiemL1,
+               DiemL2
+        FROM dbo.Diem
+    </select>
+
+    <select id="getAllDiemMonHoc" resultMap="diemResultMap">
+        SELECT MaSV,
+               MaMH,
+               DiemL1,
+               DiemL2
+        FROM dbo.Diem
+        WHERE MaMH = #{maMonHoc}
+    </select>
+
+    <select id="getAllDiemSinhVien" resultMap="diemResultMap">
+        SELECT MaSV,
+               MaMH,
+               DiemL1,
+               DiemL2
+        FROM dbo.Diem
+        WHERE MaSV = #{maSinhVien}
+    </select>
+
+    <select id="getDiemSinhVienByMaMonHoc" resultMap="diemResultMap">
+        SELECT MaSV,
+               MaMH,
+               DiemL1,
+               DiemL2
+        FROM dbo.Diem
+        WHERE MaSV = #{maSinhVien} and MaMH = #{maMonHoc}
+    </select>
+
+    <insert id="createDiem">
+        INSERT INTO dbo.Diem(MaSV, MaMH, DiemL1, DiemL2)
+        VALUES (#{maSinhVien}, #{maMonHoc}, #{diemL1}, #{diemL2})
+    </insert>
+
+    <update id="updateDiem">
+        UPDATE dbo.Diem
+        SET DiemL1 = #{diemL1},
+            DiemL2 = #{diemL2}
+        WHERE MaSV = #{maSinhVien} and MaMH = #{maMonHoc}
+    </update>
+
+    <delete id="deleteDiem">
+        DELETE FROM dbo.Diem
+        WHERE MaSV = #{maSinhVien} and MaMH = #{maMonHoc}
+    </delete>
+
 </mapper>

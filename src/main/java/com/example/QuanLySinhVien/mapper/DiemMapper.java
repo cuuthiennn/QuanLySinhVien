@@ -8,9 +8,14 @@ import java.util.List;
 
 @Mapper
 public interface DiemMapper {
-    public List<Diem> getAllDiem(@Param("maSinhVien") String maSinhVien);
 
-    public Diem getDiemByMaMonHoc(@Param("maSinhVien") String maSinhVien, @Param("maMonHoc") String maMonHoc);
+    public List<Diem> getAllDiem();
+
+    public List<Diem> getAllDiemMonHoc(@Param("maMonHoc") String maMonHoc);
+
+    public List<Diem> getAllDiemSinhVien(@Param("maSinhVien") String maSinhVien);
+
+    public Diem getDiemSinhVienByMaMonHoc(@Param("maSinhVien") String maSinhVien, @Param("maMonHoc") String maMonHoc);
 
     public void createDiem(Diem diem);
 

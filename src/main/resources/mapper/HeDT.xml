@@ -6,4 +6,33 @@
         <result property="tenHeDT" column="TenHeDT"/>
     </resultMap>
 
+    <select id="getAllHeDT" resultMap="heDTResultMap">
+        SELECT MaHeDT,
+               TenHeDT
+        FROM dbo.HeDT
+    </select>
+
+    <select id="getHeDTById" resultMap="heDTResultMap">
+        SELECT MaHeDT,
+               TenHeDT
+        FROM dbo.HeDT
+        WHERE MaHeDT = #{maHeDT}
+    </select>
+
+    <insert id="createHeDT">
+        INSERT INTO dbo.HeDT(MaHeDT, TenHeDT)
+        VALUES (#{maHeDT}, #{tenHeDT})
+    </insert>
+
+    <update id="updateHeDT">
+        UPDATE dbo.HeDT
+        SET TenHeDT = #{tenHeDT}
+        WHERE MaHeDT = #{maHeDT}
+    </update>
+
+    <delete id="deleteHeDT">
+        DELETE FROM dbo.HeDT
+        WHERE MaHeDT = #{maHeDT}
+    </delete>
+
 </mapper>

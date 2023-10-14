@@ -9,4 +9,42 @@
         <result property="maKhoaHoc" column="MaKhoaHoc"/>
     </resultMap>
 
+    <select id="getAllLop" resultMap="lopResultMap">
+        SELECT MaLop,
+               TenLop,
+               MaKhoa,
+               MaHeDT,
+               MaKhoaHoc
+        FROM dbo.Lop
+    </select>
+
+    <select id="getLopById" resultMap="lopResultMap">
+        SELECT MaLop,
+               TenLop,
+               MaKhoa,
+               MaHeDT,
+               MaKhoaHoc
+        FROM dbo.Lop
+        WHERE MaLop = @{maLop}
+    </select>
+
+    <insert id="createLop">
+        INSERT INTO dbo.Lop (MaLop, TenLop, MaKhoa, MaHeDT, MaKhoaHoc)
+        VALUES (#{maLop}, #{tenLop}, #{maKhoa}, #{maHeDT}, #{maKhoaHoc})
+    </insert>
+
+    <update id="updateLop">
+        UPDATE dbo.Lop
+        SET TenLop = #{tenLop},
+            MaKhoa = #{maKhoa},
+            MaHeDT = #{maHeDT},
+            MaKhoaHoc = #{maKhoaHoc}
+        WHERE MaLop = #{maLop}
+    </update>
+
+    <delete id="deleteLop">
+        DELETE FROM dbo.Lop
+        WHERE MaLop = #{maLop}
+    </delete>
+
 </mapper>

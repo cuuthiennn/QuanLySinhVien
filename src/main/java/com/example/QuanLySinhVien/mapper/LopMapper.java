@@ -16,5 +16,5 @@ public interface LopMapper {
 
     public void updateLop(Lop lop);
 
-    public void deleteLop(String maLop);
+    public void deleteLop(@Param("maLop") String maLop);
 }

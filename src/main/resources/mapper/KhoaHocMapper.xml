@@ -6,4 +6,33 @@
         <result property="tenKhoaHoc" column="TenKhoaHoc"/>
     </resultMap>
 
+    <select id="getAllKhoaHoc" resultMap="khoaHocResultMap">
+        SELECT MaKhoaHoc,
+               TenKhoaHoc
+        FROM dbo.KhoaHoc
+    </select>
+
+    <select id="getKhoaHocById" resultMap="khoaHocResultMap">
+        SELECT MaKhoaHoc,
+               TenKhoaHoc
+        FROM dbo.KhoaHoc
+        WHERE MaKhoaHoc = #{maKhoaHoc}
+    </select>
+
+    <insert id="createKhoaHoc">
+        INSERT INTO dbo.KhoaHoc(MaKhoaHoc, TenKhoaHoc)
+        VALUES (#{makhocHoc}, #{tenKhoaHoc})
+    </insert>
+
+    <update id="updateKhoaHoc">
+        UPDATE dbo.KhoaHoc
+        SET TenKhoaHoc = #{tenKhoaHoc}
+        WHERE MaKhoaHoc = #{maKhoaHoc}
+    </update>
+
+    <delete id="deleteKhoaHoc">
+        DELETE FROM dbo.KhoaHoc
+        WHERE MaKhoaHoc = #{maKhoaHoc}
+    </delete>
+
 </mapper>

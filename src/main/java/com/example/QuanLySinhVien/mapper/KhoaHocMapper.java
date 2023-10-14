@@ -16,5 +16,5 @@ public interface KhoaHocMapper {
 
     public void updateKhoaHoc(KhoaHoc khoaHoc);
 
-    public void deleteKhoaHoc(String maKhoaHoc);
+    public void deleteKhoaHoc(@Param("maKhoaHoc") String maKhoaHoc);
 }

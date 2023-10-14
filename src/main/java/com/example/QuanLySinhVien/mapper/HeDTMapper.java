@@ -16,5 +16,5 @@ public interface HeDTMapper {
 
     public void updateHeDT(HeDT heDT);
 
-    public void deleteHeDT(String maHeDT);
+    public void deleteHeDT(@Param("maHeDT") String maHeDT);
 }

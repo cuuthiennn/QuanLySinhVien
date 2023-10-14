@@ -7,4 +7,35 @@
         <result property="soTinChi" column="SoTC"/>
     </resultMap>
 
+    <select id="getAllMonHoc" resultMap="monHocResultMap">
+        SELECT MaMH,
+               TenMH,
+               SoTC
+        FROM dbo.MonHoc
+    </select>
+
+    <select id="getMonHocById" resultMap="monHocResultMap">
+        SELECT MaMH,
+               TenMH,
+               SoTC
+        FROM dbo.MonHoc
+        WHERE MaMH = #{maMonHoc}
+    </select>
+
+    <insert id="createMonHoc">
+        INSERT INTO dbo.MonHoc (MaMH, TenMH, SoTC) VALUES (#{maMonHoc}, #{tenMonHoc}, #{soTinChi});
+    </insert>
+
+    <update id="updateMonHoc">
+        UPDATE dbo.MonHoc
+        SET TenMH = #{tenMonHoc},
+            SoTC = #{soTinChi}
+        WHERE MaMH = #{maMonHoc}
+    </update>
+
+    <delete id="deleteMonHoc">
+        DELETE FROM dbo.MonHoc
+        WHERE MaMH = #{maMonHoc}
+    </delete>
+
 </mapper>

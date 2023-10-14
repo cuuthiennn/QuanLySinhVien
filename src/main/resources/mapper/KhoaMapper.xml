@@ -8,4 +8,38 @@
         <result property="dienThoai" column="DienThoai"/>
     </resultMap>
 
+    <select id="getAllKhoa" resultMap="khoaResultMap">
+        SELECT MaKhoa,
+               TenKhoa,
+               DiaChi,
+               DienThoai
+        FROM dbo.Khoa
+    </select>
+
+    <select id="getKhoaById" resultMap="khoaResultMap">
+        SELECT MaKhoa,
+               TenKhoa,
+               DiaChi,
+               DienThoai
+        FROM dbo.Khoa
+        WHERE MaKhoa = #{maKhoa}
+    </select>
+
+    <insert id="createKhoa">
+        INSERT INTO dbo.Khoa(MaKhoa, TenKhoa, DiaChi, DienThoai)
+        VALUES (#{maKhoa}, #{tenKhoa}, #{diaChi}, #{dienThoai})
+    </insert>
+
+    <update id="updateKhoa">
+        UPDATE dbo.Khoa
+        SET TenKhoa = #{tenKhoa},
+            DiaChi = #{diaChi},
+            DienThoai = #{dienThoai}
+        WHERE MaKhoa = #{maKhoa}
+    </update>
+
+    <delete id="deleteKhoa">
+        DELETE FROM dbo.Khoa
+        WHERE MaKhoa = #{maKhoa}
+    </delete>
 </mapper>

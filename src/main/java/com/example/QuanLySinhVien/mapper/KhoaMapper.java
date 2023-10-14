@@ -16,5 +16,5 @@ public interface KhoaMapper {
 
     public void updateKhoa(Khoa khoa);
 
-    public void deleteKhoa(String maKhoa);
+    public void deleteKhoa(@Param("maKhoa") String maKhoa);
 }
